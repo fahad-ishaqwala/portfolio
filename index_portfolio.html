@@ -11,20 +11,19 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy:    #0b1120;
-      --navy2:   #0f1a2e;
-      --navy3:   #162032;
-      --slate:   #8892a4;
-      --slate2:  #a8b2c4;
-      --white:   #e6edf5;
-      --green:   #4fffce;
-      --green2:  #3de8b6;
-      --accent:  rgba(79,255,206,0.08);
-      --border:  rgba(79,255,206,0.12);
-      --mono:    'DM Mono', monospace;
-      --sans:    'DM Sans', sans-serif;
-      --display: 'Syne', sans-serif;
-      --trans:   all 0.25s cubic-bezier(0.4,0,0.2,1);
+      --navy:   #0b1120;
+      --navy2:  #0f1a2e;
+      --navy3:  #162032;
+      --slate:  #8892a4;
+      --slate2: #a8b2c4;
+      --white:  #e6edf5;
+      --green:  #4fffce;
+      --accent: rgba(79,255,206,0.08);
+      --border: rgba(79,255,206,0.12);
+      --mono:   'DM Mono', monospace;
+      --sans:   'DM Sans', sans-serif;
+      --display:'Syne', sans-serif;
+      --trans:  all 0.25s cubic-bezier(0.4,0,0.2,1);
     }
 
     html { scroll-behavior: smooth; }
@@ -39,7 +38,6 @@
     }
 
     ::selection { background: rgba(79,255,206,0.2); color: var(--white); }
-
     a { color: var(--green); text-decoration: none; transition: var(--trans); }
     a:hover { color: var(--white); }
 
@@ -53,7 +51,7 @@
       gap: 80px;
     }
 
-    /* ── LEFT SIDEBAR ── */
+    /* ── SIDEBAR ── */
     .sidebar {
       position: sticky;
       top: 0;
@@ -63,62 +61,88 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 80px 0 60px;
+      padding: 56px 0 56px;
     }
 
-    .sidebar-top {}
+    /* MEDIA PLACEHOLDER */
+    .node-placeholder {
+      width: 82%;
+      aspect-ratio: 16 / 9;
+      border-radius: 8px;
+      border: 1.5px dashed rgba(79,255,206,0.22);
+      background: var(--navy2);
+      overflow: hidden;
+      margin-bottom: 28px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      transition: var(--trans);
+      cursor: default;
+    }
+
+    .node-placeholder:hover { border-color: rgba(79,255,206,0.42); }
+
+    /* swap in your photo/video — uncomment and add src */
+    /* .node-placeholder img,
+    .node-placeholder video {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; border-radius: 8px;
+    } */
+
+    .placeholder-icon { font-size: 18px; opacity: 0.25; color: var(--green); }
+    .placeholder-label { font-family: var(--mono); font-size: 10px; color: rgba(79,255,206,0.3); letter-spacing: 0.1em; text-align: center; line-height: 1.9; }
 
     .mono-label {
       font-family: var(--mono);
-      font-size: 13px;
+      font-size: 12px;
       color: var(--green);
       letter-spacing: 0.1em;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .sidebar h1 {
       font-family: var(--display);
-      font-size: 46px;
+      font-size: 40px;
       font-weight: 800;
       color: var(--white);
       line-height: 1.05;
       letter-spacing: -0.02em;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .sidebar h2 {
       font-family: var(--display);
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 500;
       color: var(--slate2);
-      margin-bottom: 20px;
-      letter-spacing: -0.01em;
+      margin-bottom: 14px;
     }
 
-    .sidebar p {
-      font-size: 14px;
+    .sidebar p.tagline {
+      font-size: 13px;
       color: var(--slate);
       max-width: 280px;
       line-height: 1.75;
     }
 
-    /* NAV */
-    nav { margin-top: 52px; }
-
+    nav { margin-top: 40px; }
     nav ul { list-style: none; }
-
-    nav ul li { margin: 6px 0; }
+    nav ul li { margin: 4px 0; }
 
     nav ul li a {
       display: flex;
       align-items: center;
       gap: 14px;
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: 11px;
       color: var(--slate);
       text-transform: uppercase;
       letter-spacing: 0.15em;
-      padding: 6px 0;
+      padding: 5px 0;
       transition: var(--trans);
     }
 
@@ -126,57 +150,30 @@
       content: '';
       display: block;
       height: 1px;
-      width: 28px;
+      width: 24px;
       background: var(--slate);
       transition: var(--trans);
     }
 
     nav ul li a:hover,
-    nav ul li a.active {
-      color: var(--white);
-    }
+    nav ul li a.active { color: var(--white); }
 
     nav ul li a:hover::before,
-    nav ul li a.active::before {
-      width: 56px;
-      background: var(--green);
-    }
+    nav ul li a.active::before { width: 52px; background: var(--green); }
 
-    /* SOCIAL */
-    .social {
-      display: flex;
-      gap: 18px;
-      align-items: center;
-      margin-top: 48px;
-    }
-
-    .social a {
-      color: var(--slate);
-      display: flex;
-      align-items: center;
-      transition: var(--trans);
-    }
-
+    .social { display: flex; gap: 18px; align-items: center; margin-top: 36px; }
+    .social a { color: var(--slate); display: flex; align-items: center; transition: var(--trans); }
     .social a:hover { color: var(--green); transform: translateY(-2px); }
-
     .social svg { width: 20px; height: 20px; fill: currentColor; }
 
-    /* ── MAIN CONTENT ── */
-    main {
-      flex: 1;
-      padding: 80px 0 120px;
-    }
-
-    section {
-      padding: 80px 0;
-      max-width: 680px;
-    }
-
+    /* ── MAIN ── */
+    main { flex: 1; padding: 56px 0 120px; }
+    section { padding: 64px 0; max-width: 680px; }
     section:first-child { padding-top: 0; }
 
     .section-label {
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: 11px;
       color: var(--green);
       letter-spacing: 0.15em;
       text-transform: uppercase;
@@ -195,67 +192,46 @@
     }
 
     /* ── ABOUT ── */
-    #about p {
-      margin-bottom: 16px;
-      color: var(--slate2);
-      font-size: 15px;
-    }
+    #about p { margin-bottom: 14px; color: var(--slate2); font-size: 15px; }
+    #about p:last-of-type { margin-bottom: 0; }
 
-    #about p:last-child { margin-bottom: 0; }
-
-    .skills-grid {
-      margin-top: 36px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-    }
+    .skills-grid { margin-top: 36px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 
     .skill-group h4 {
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: 10px;
       color: var(--green);
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
-    .skill-group ul {
-      list-style: none;
-    }
+    .skill-group ul { list-style: none; }
 
     .skill-group ul li {
       font-family: var(--mono);
-      font-size: 12.5px;
+      font-size: 12px;
       color: var(--slate2);
-      padding: 3px 0;
+      padding: 2px 0;
       display: flex;
       align-items: center;
       gap: 8px;
     }
 
-    .skill-group ul li::before {
-      content: '▸';
-      color: var(--green);
-      font-size: 10px;
-    }
+    .skill-group ul li::before { content: '▸'; color: var(--green); font-size: 9px; }
 
-    /* ── EXPERIENCE ── */
+    /* ── EXPERIENCE + EMBEDDED PROJECTS ── */
     .job {
-      display: grid;
-      grid-template-columns: 100px 1fr;
-      gap: 24px;
       padding: 24px;
-      border-radius: 6px;
+      border-radius: 8px;
       border: 1px solid transparent;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
       transition: var(--trans);
-      cursor: default;
     }
 
-    .job:hover {
-      background: var(--navy3);
-      border-color: var(--border);
-    }
+    .job:hover { background: var(--navy3); border-color: var(--border); }
+
+    .job-header { display: grid; grid-template-columns: 96px 1fr; gap: 22px; }
 
     .job-date {
       font-family: var(--mono);
@@ -263,59 +239,97 @@
       color: var(--slate);
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      padding-top: 4px;
-      line-height: 1.5;
+      padding-top: 3px;
+      line-height: 1.6;
     }
 
     .job-content h3 {
       font-family: var(--display);
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 600;
       color: var(--white);
       margin-bottom: 2px;
     }
 
-    .job-content h3 a { color: var(--white); }
-    .job-content h3 a:hover { color: var(--green); }
-
     .job-content .company {
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: 11px;
       color: var(--green);
       margin-bottom: 10px;
     }
 
-    .job-content p {
-      font-size: 14px;
-      color: var(--slate);
-      line-height: 1.7;
-    }
+    .job-content p { font-size: 14px; color: var(--slate); line-height: 1.7; }
 
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 12px;
-    }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
 
     .tag {
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: 10px;
+      color: var(--slate);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 3px;
+      padding: 2px 8px;
+    }
+
+    /* INLINE PROJECT CARDS inside job — indented to align under content, past the date column */
+    .job-projects { margin-top: 16px; padding-left: calc(96px + 22px); display: flex; flex-direction: column; gap: 10px; }
+
+    .inline-project {
+      background: rgba(6,14,26,0.7);
+      border: 1px solid var(--border);
+      border-left: 2px solid rgba(79,255,206,0.3);
+      border-radius: 0 6px 6px 0;
+      padding: 14px 16px;
+      transition: var(--trans);
+    }
+
+    .inline-project:hover { border-left-color: var(--green); background: rgba(79,255,206,0.04); }
+
+    .inline-project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .inline-project h4 {
+      font-family: var(--display);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .inline-project .proj-meta {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--slate);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    .inline-project p { font-size: 13px; color: var(--slate); line-height: 1.65; }
+
+    .proj-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+
+    .proj-tag {
+      font-family: var(--mono);
+      font-size: 10px;
       color: var(--green);
       background: var(--accent);
       border: 1px solid var(--border);
       border-radius: 3px;
-      padding: 3px 10px;
-      letter-spacing: 0.05em;
+      padding: 1px 7px;
     }
 
-    /* ── PROJECTS ── */
+    /* ── PERSONAL PROJECTS ── */
     .project-card {
       background: var(--navy2);
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 28px;
-      margin-bottom: 16px;
+      padding: 24px 26px;
+      margin-bottom: 14px;
       transition: var(--trans);
       position: relative;
       overflow: hidden;
@@ -331,165 +345,88 @@
       transition: var(--trans);
     }
 
-    .project-card:hover {
-      border-color: rgba(79,255,206,0.25);
-      transform: translateY(-3px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
-    }
-
+    .project-card:hover { border-color: rgba(79,255,206,0.25); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
     .project-card:hover::before { opacity: 1; }
 
-    .project-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 12px;
-    }
+    .project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; gap: 10px; }
+    .project-badges { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 
-    .project-icon {
-      color: var(--green);
-      opacity: 0.7;
-    }
-
-    .project-links { display: flex; gap: 14px; }
-
-    .project-links a { color: var(--slate); }
-    .project-links a:hover { color: var(--green); }
-    .project-links svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.5; }
-
-    .project-card h3 {
-      font-family: var(--display);
-      font-size: 17px;
-      font-weight: 600;
-      color: var(--white);
-      margin-bottom: 8px;
-    }
-
-    .project-meta {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--slate);
-      margin-bottom: 10px;
-      letter-spacing: 0.05em;
-    }
-
-    .project-card p {
-      font-size: 14px;
-      color: var(--slate);
-      line-height: 1.7;
-    }
-
-    .featured-badge {
+    .badge {
       font-family: var(--mono);
       font-size: 10px;
-      color: var(--green);
-      border: 1px solid var(--border);
       border-radius: 2px;
       padding: 2px 8px;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
-    /* ── CONTACT ── */
-    #contact {
-      text-align: center;
-      padding: 80px 0 40px;
-      max-width: 520px;
-      margin: 0 auto;
+    .badge-wip {
+      color: #f0a04b;
+      border: 1px solid rgba(240,160,75,0.3);
+      background: rgba(240,160,75,0.07);
+      animation: pulse-wip 2.5s ease-in-out infinite;
     }
 
-    #contact .mono-label { justify-content: center; }
+    @keyframes pulse-wip { 0%,100%{opacity:1} 50%{opacity:0.5} }
+
+    .project-links { display: flex; gap: 12px; flex-shrink: 0; }
+    .project-links a { color: var(--slate); transition: var(--trans); }
+    .project-links a:hover { color: var(--green); }
+    .project-links svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+
+    .project-card h3 { font-family: var(--display); font-size: 16px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+    .project-meta { font-family: var(--mono); font-size: 11px; color: var(--slate); margin-bottom: 10px; }
+    .project-card p { font-size: 14px; color: var(--slate); line-height: 1.7; }
+
+    /* ── CONTACT ── */
+    #contact { text-align: center; padding: 60px 0 40px; max-width: 520px; margin: 0 auto; }
 
     #contact h2 {
       font-family: var(--display);
-      font-size: 48px;
+      font-size: 42px;
       font-weight: 800;
       color: var(--white);
       letter-spacing: -0.02em;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
-    #contact p {
-      font-size: 15px;
-      color: var(--slate);
-      margin-bottom: 40px;
-    }
+    #contact p { font-size: 15px; color: var(--slate); margin-bottom: 34px; }
 
     .btn-outline {
       display: inline-block;
       font-family: var(--mono);
-      font-size: 13px;
+      font-size: 12px;
       color: var(--green);
       border: 1px solid var(--green);
       border-radius: 4px;
-      padding: 16px 32px;
+      padding: 14px 30px;
       letter-spacing: 0.1em;
       transition: var(--trans);
     }
 
-    .btn-outline:hover {
-      background: var(--accent);
-      color: var(--green);
-      transform: translateY(-2px);
-    }
+    .btn-outline:hover { background: var(--accent); color: var(--green); transform: translateY(-2px); }
 
-    /* ── FOOTER ── */
-    footer {
-      text-align: center;
-      padding: 20px 0 40px;
-      font-family: var(--mono);
-      font-size: 12px;
-      color: var(--slate);
-    }
+    footer { text-align: center; padding: 20px 0 40px; font-family: var(--mono); font-size: 11px; color: var(--slate); }
 
-    /* ── SCROLLBAR ── */
-    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar { width: 5px; }
     ::-webkit-scrollbar-track { background: var(--navy); }
     ::-webkit-scrollbar-thumb { background: var(--navy3); border-radius: 3px; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--slate); }
 
     /* ── MOBILE ── */
     @media (max-width: 900px) {
-      .container {
-        flex-direction: column;
-        padding: 0 24px;
-        gap: 0;
-      }
-
-      .sidebar {
-        position: static;
-        height: auto;
-        width: 100%;
-        min-width: unset;
-        padding: 60px 0 0;
-      }
-
-      .sidebar h1 { font-size: 36px; }
-
+      .container { flex-direction: column; padding: 0 22px; gap: 0; }
+      .sidebar { position: static; height: auto; width: 100%; min-width: unset; padding: 46px 0 0; }
+      .sidebar h1 { font-size: 32px; }
       nav { display: none; }
-
-      main { padding: 40px 0 80px; }
-
-      section { padding: 60px 0; }
-
-      .skills-grid { grid-template-columns: 1fr; gap: 20px; }
-
-      .job { grid-template-columns: 1fr; gap: 8px; }
-
-      #contact h2 { font-size: 36px; }
+      main { padding: 28px 0 80px; }
+      section { padding: 46px 0; }
+      .skills-grid { grid-template-columns: 1fr; gap: 18px; }
+      .job-header { grid-template-columns: 1fr; gap: 4px; }
+      #contact h2 { font-size: 32px; }
     }
 
-    /* ── FADE IN ── */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
@@ -499,36 +436,38 @@
   <!-- ── SIDEBAR ── -->
   <aside class="sidebar">
     <div class="sidebar-top">
-      <p class="mono-label">// based in Singapore</p>
+
+      <!-- MEDIA PLACEHOLDER — replace contents with <img> or <video> when ready -->
+      <div class="node-placeholder">
+        <!-- <img src="your-photo.jpg" alt="Fahad Ishaqwala" /> -->
+        <!-- <video src="your-clip.mp4" autoplay loop muted playsinline></video> -->
+        <span class="placeholder-icon">▶</span>
+        <span class="placeholder-label">photo · or · 3s loop<br>16 : 9</span>
+      </div>
+
+      <p class="mono-label">// Singapore</p>
       <h1>Fahad<br>Ishaqwala</h1>
       <h2>Data &amp; AI Architect</h2>
-      <p>I bridge dimensional data architecture and modern agentic AI — the semantic foundation underneath is what makes the AI work.</p>
+      <p class="tagline">I bridge dimensional data architecture and modern agentic AI — the semantic foundation underneath is what makes the AI work.</p>
 
       <nav>
         <ul>
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#experience" class="nav-link">Experience</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
+          <li><a href="#about"            class="nav-link">About</a></li>
+          <li><a href="#experience"       class="nav-link">Experience</a></li>
+          <li><a href="#personal-projects" class="nav-link">Open Source</a></li>
+          <li><a href="#contact"          class="nav-link">Contact</a></li>
         </ul>
       </nav>
     </div>
 
     <div>
       <div class="social">
-        <!-- GitHub -->
         <a href="https://github.com/fahad-ishaqwala" target="_blank" rel="noopener" aria-label="GitHub">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-          </svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
         </a>
-        <!-- LinkedIn -->
         <a href="https://linkedin.com/in/fahad-ishaqwala" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-          </svg>
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         </a>
-        <!-- Email -->
         <a href="mailto:fahad.ishaqwala@gmail.com" aria-label="Email">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
@@ -544,16 +483,9 @@
     <!-- ABOUT -->
     <section id="about">
       <p class="section-label">About</p>
-
-      <p>
-        I spend my days at the intersection of data architecture and applied AI — designing the semantic foundations that make agentic systems actually work in production. 15 years across banking, government, and enterprise; most recently as <strong style="color:var(--slate2); font-weight:500">VP, Data Analytics &amp; Applied AI at Citi Singapore</strong>.
-      </p>
-      <p>
-        My background spans Accenture Singapore (7 years, government-embedded consulting across 10+ agencies), Citi (data engineering through AI leadership), and TCS. I've shipped production ML on ~2.5M citizens, designed enterprise data lakes, and built regulatory data quality engines from scratch.
-      </p>
-      <p>
-        Currently targeting forward-deployed AI engineering and solutions architect roles. I hold an Executive MBA from SP Jain School of Global Management and an AI/ML Diploma from the University of Hyderabad.
-      </p>
+      <p>I spend my days at the intersection of data architecture and applied AI — designing the semantic foundations that make agentic systems actually work in production. 15 years across banking, government, and enterprise; most recently as <strong style="color:var(--slate2);font-weight:500">VP, Data Analytics &amp; Applied AI at Citi Singapore</strong>.</p>
+      <p>My background spans Accenture Singapore (7 years, government-embedded consulting across 10+ agencies), Citi (data engineering through AI leadership), and TCS. I've shipped production ML on ~2.5M citizens, designed enterprise data lakes, and built regulatory data quality engines from scratch.</p>
+      <p>Currently targeting forward-deployed AI engineering and solutions architect roles. Executive MBA, SP Jain · AI/ML Diploma, University of Hyderabad.</p>
 
       <div class="skills-grid">
         <div class="skill-group">
@@ -597,167 +529,133 @@
       </div>
     </section>
 
-    <!-- EXPERIENCE -->
+    <!-- EXPERIENCE with embedded projects -->
     <section id="experience">
       <p class="section-label">Experience</p>
 
+      <!-- CITI -->
       <div class="job fade-in">
-        <div class="job-date">2020 — 2025</div>
-        <div class="job-content">
-          <h3>VP, Data Analytics &amp; Applied AI</h3>
-          <div class="company">Citi Singapore</div>
-          <p>Led data analytics, applied AI, and governance initiatives across the bank. Shipped production agentic GenAI on regulated banking data, designed BCBS 239 data quality frameworks, and delivered a multi-agent NLP-to-SQL platform as product owner and information architect.</p>
-          <div class="tags">
-            <span class="tag">LangGraph</span>
-            <span class="tag">RAG</span>
-            <span class="tag">Snowflake</span>
-            <span class="tag">BCBS 239</span>
-            <span class="tag">Python</span>
+        <div class="job-header">
+          <div class="job-date">2020 —<br>2025</div>
+          <div class="job-content">
+            <h3>VP, Data Analytics &amp; Applied AI</h3>
+            <div class="company">Citi Singapore</div>
+            <p>Led data analytics, applied AI, and governance across the bank. Shipped production agentic GenAI on regulated data, designed BCBS 239 data quality frameworks, and built a multi-agent NLP-to-SQL platform end-to-end.</p>
+            <div class="tags">
+              <span class="tag">LangGraph</span><span class="tag">RAG</span><span class="tag">Snowflake</span><span class="tag">BCBS 239</span><span class="tag">Python</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="job-projects">
+          <div class="inline-project">
+            <div class="inline-project-header">
+              <h4>Agentic NLP-to-SQL + RAG Platform</h4>
+              <span class="proj-meta">2024 – 2025</span>
+            </div>
+            <p>Production multi-agent pipeline converting natural language to validated SQL, with a RAG layer over internal policy documents. Designed end-to-end as product owner and information architect on regulated banking data.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">LangGraph</span><span class="proj-tag">Mistral API</span><span class="proj-tag">ChromaDB</span><span class="proj-tag">Snowflake</span><span class="proj-tag">Databricks</span>
+            </div>
+          </div>
+
+          <div class="inline-project">
+            <div class="inline-project-header">
+              <h4>BCBS 239 Data Quality Engine</h4>
+              <span class="proj-meta">2021 – 2022</span>
+            </div>
+            <p>Sole architect and developer. Custom Python rules engine implementing BCBS 239 data quality controls — replaced a fragmented manual process with automated, auditable DQ validation across critical risk data domains.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">Python</span><span class="proj-tag">SQL</span><span class="proj-tag">Collibra</span><span class="proj-tag">Solidatus</span>
+            </div>
           </div>
         </div>
       </div>
 
+      <!-- ACCENTURE -->
       <div class="job fade-in">
-        <div class="job-date">2013 — 2020</div>
-        <div class="job-content">
-          <h3>Manager, Data &amp; AI Consulting</h3>
-          <div class="company">Accenture Singapore</div>
-          <p>Government-embedded consulting across 10+ Singapore agencies. Delivered a 14 TB cross-agency data lake and a production real-time ML fraud detection system covering ~2.5M citizens.</p>
-          <div class="tags">
-            <span class="tag">PySpark</span>
-            <span class="tag">Hadoop</span>
-            <span class="tag">Real-Time ML</span>
-            <span class="tag">Hive / Impala</span>
+        <div class="job-header">
+          <div class="job-date">2013 —<br>2020</div>
+          <div class="job-content">
+            <h3>Manager, Data &amp; AI Consulting</h3>
+            <div class="company">Accenture Singapore</div>
+            <p>Government-embedded consulting across 10+ Singapore agencies. Delivered production ML and enterprise data infrastructure at national scale.</p>
+            <div class="tags">
+              <span class="tag">PySpark</span><span class="tag">Hadoop</span><span class="tag">Real-Time ML</span><span class="tag">Hive / Impala</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="job-projects">
+          <div class="inline-project">
+            <div class="inline-project-header">
+              <h4>Real-Time ML Fraud Detection</h4>
+              <span class="proj-meta">2016</span>
+            </div>
+            <p>Production ML fraud detection for a Singapore government agency covering ~2.5M citizens. Full pipeline — feature engineering, model training, and real-time scoring — delivered in a regulated government environment.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">PySpark</span><span class="proj-tag">Python</span><span class="proj-tag">Hadoop</span><span class="proj-tag">Streaming</span>
+            </div>
+          </div>
+
+          <div class="inline-project">
+            <div class="inline-project-header">
+              <h4>Cross-Agency Government Data Lake</h4>
+              <span class="proj-meta">2017</span>
+            </div>
+            <p>14 TB data lake spanning 10 Singapore government agencies. End-to-end delivery including ingestion, transformation, and Tableau-ready query optimisation across heterogeneous data sources.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">Hadoop</span><span class="proj-tag">Hive</span><span class="proj-tag">Impala</span><span class="proj-tag">PySpark</span><span class="proj-tag">Tableau</span>
+            </div>
           </div>
         </div>
       </div>
 
+      <!-- TCS -->
       <div class="job fade-in">
-        <div class="job-date">2011 — 2013</div>
-        <div class="job-content">
-          <h3>SAP Consultant</h3>
-          <div class="company">Tata Consultancy Services</div>
-          <p>Enterprise SAP consulting, delivering large-scale ERP implementations across multiple industries.</p>
-          <div class="tags">
-            <span class="tag">SAP</span>
-            <span class="tag">Enterprise ERP</span>
+        <div class="job-header">
+          <div class="job-date">2011 —<br>2013</div>
+          <div class="job-content">
+            <h3>SAP Consultant</h3>
+            <div class="company">Tata Consultancy Services</div>
+            <p>Enterprise SAP consulting, delivering large-scale ERP implementations across multiple industries.</p>
+            <div class="tags">
+              <span class="tag">SAP</span><span class="tag">Enterprise ERP</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section id="projects">
-      <p class="section-label">Selected Projects</p>
+    <!-- OPEN SOURCE -->
+    <section id="personal-projects">
+      <p class="section-label">Open Source &amp; Portfolio</p>
 
       <div class="project-card fade-in">
         <div class="project-header">
-          <span class="featured-badge">Featured</span>
-          <div class="project-links">
-            <a href="https://github.com/fahad-ishaqwala/sg-housing-platform" target="_blank" rel="noopener" aria-label="GitHub">
-              <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
-        </div>
-        <h3>Agentic NLP-to-SQL + RAG Platform</h3>
-        <p class="project-meta">Citi Singapore · 2024–2025</p>
-        <p>Production agentic GenAI on regulated banking data. Multi-agent pipeline converting natural language to validated SQL, with a RAG layer over internal policy documents. Designed end-to-end as product owner and information architect. Architecture demo live on GitHub.</p>
-        <div class="tags">
-          <span class="tag">LangGraph</span>
-          <span class="tag">Mistral API</span>
-          <span class="tag">ChromaDB</span>
-          <span class="tag">Snowflake</span>
-          <span class="tag">Databricks</span>
-        </div>
-      </div>
-
-      <div class="project-card fade-in">
-        <div class="project-header">
-          <span class="featured-badge">Featured</span>
-          <div class="project-links"></div>
-        </div>
-        <h3>BCBS 239 Data Quality Engine</h3>
-        <p class="project-meta">Citi Singapore · 2021–2022</p>
-        <p>Sole architect and developer of a custom Python rules engine implementing BCBS 239 data quality controls. Replaced a fragmented manual process with automated, auditable DQ validation across critical risk data domains — from scratch.</p>
-        <div class="tags">
-          <span class="tag">Python</span>
-          <span class="tag">SQL</span>
-          <span class="tag">Collibra</span>
-          <span class="tag">Solidatus</span>
-          <span class="tag">BCBS 239</span>
-        </div>
-      </div>
-
-      <div class="project-card fade-in">
-        <div class="project-header">
-          <span class="featured-badge">Featured</span>
-          <div class="project-links"></div>
-        </div>
-        <h3>Real-Time ML Fraud Detection</h3>
-        <p class="project-meta">Accenture / Singapore Government · 2016</p>
-        <p>Production ML fraud detection system for a Singapore government agency. Covered ~2.5M citizens. Delivered the full pipeline — feature engineering, model training, and real-time scoring — in a regulated environment.</p>
-        <div class="tags">
-          <span class="tag">PySpark</span>
-          <span class="tag">Python</span>
-          <span class="tag">Hadoop</span>
-          <span class="tag">Real-Time Streaming</span>
-        </div>
-      </div>
-
-      <div class="project-card fade-in">
-        <div class="project-header">
-          <span class="featured-badge">Featured</span>
-          <div class="project-links"></div>
-        </div>
-        <h3>Cross-Agency Government Data Lake</h3>
-        <p class="project-meta">Accenture Singapore · 2017</p>
-        <p>14 TB data lake spanning 10 Singapore government agencies. End-to-end delivery including ingestion, transformation, and Tableau-ready query optimisation across heterogeneous data sources.</p>
-        <div class="tags">
-          <span class="tag">Hadoop</span>
-          <span class="tag">Hive</span>
-          <span class="tag">Impala</span>
-          <span class="tag">PySpark</span>
-          <span class="tag">Tableau</span>
-        </div>
-      </div>
-
-      <div class="project-card fade-in">
-        <div class="project-header">
-          <div style="display:flex; align-items:center; gap:10px;">
-            <span class="featured-badge">Active Build</span>
-            <span style="font-family:var(--mono); font-size:10px; color:var(--green); opacity:0.7; letter-spacing:0.05em;">● Live on GitHub</span>
+          <div class="project-badges">
+            <span class="badge badge-wip">● Work in Progress</span>
           </div>
           <div class="project-links">
             <a href="https://github.com/fahad-ishaqwala/sg-housing-platform" target="_blank" rel="noopener" aria-label="GitHub">
               <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-            <a href="https://github.com/fahad-ishaqwala/sg-housing-platform" target="_blank" rel="noopener" aria-label="External link">
-              <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
         </div>
         <h3>SG Housing AI Platform</h3>
-        <p class="project-meta">Portfolio Capstone · 2025</p>
-        <p>Multi-agent NLP-to-SQL and RAG system on Singapore HDB resale data. Architecture demo for agentic AI on structured public datasets. Built with LangGraph, Mistral, ChromaDB, and Hugging Face Spaces.</p>
+        <p class="project-meta">2025 · Personal Build · Being built in public</p>
+        <p>Multi-agent NLP-to-SQL and RAG system on Singapore HDB resale data. Architecture demo for agentic AI on structured public datasets — LangGraph orchestration, Mistral inference, ChromaDB for semantic retrieval, deploying to Hugging Face Spaces.</p>
         <div class="tags">
-          <span class="tag">LangGraph</span>
-          <span class="tag">RAG</span>
-          <span class="tag">Mistral</span>
-          <span class="tag">Hugging Face</span>
-          <span class="tag">ChromaDB</span>
+          <span class="tag">LangGraph</span><span class="tag">RAG</span><span class="tag">Mistral</span><span class="tag">ChromaDB</span><span class="tag">Hugging Face</span>
         </div>
       </div>
     </section>
 
     <!-- CONTACT -->
     <section id="contact">
-      <p class="mono-label" style="justify-content:center; display:flex; align-items:center; gap:12px;">
-        04. What's next?
-      </p>
+      <p class="mono-label" style="justify-content:center;display:flex;gap:12px;">What's next?</p>
       <h2>Get In Touch</h2>
-      <p>
-        I'm actively exploring forward-deployed AI engineering and solutions architect roles in Singapore and beyond. If you're working on something at the intersection of data architecture and applied AI — or just want to connect — my inbox is open.
-      </p>
+      <p>Actively exploring forward-deployed AI engineering and solutions architect roles in Singapore and beyond. If you're working at the intersection of data architecture and applied AI — or just want to connect — my inbox is open.</p>
       <a href="mailto:fahad.ishaqwala@gmail.com" class="btn-outline">Say Hello</a>
     </section>
 
@@ -768,35 +666,31 @@
   </main>
 </div>
 
+
+
 <script>
-  // Active nav on scroll
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-link');
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
+  const navObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
         navLinks.forEach(l => l.classList.remove('active'));
-        const active = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
-        if (active) active.classList.add('active');
+        const a = document.querySelector(`.nav-link[href="#${e.target.id}"]`);
+        if (a) a.classList.add('active');
       }
     });
-  }, { threshold: 0.3 });
+  }, { threshold: 0.25 });
 
-  sections.forEach(s => observer.observe(s));
+  sections.forEach(s => navObs.observe(s));
 
-  // Fade in on scroll
-  const faders = document.querySelectorAll('.fade-in');
-  const fadeObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        fadeObserver.unobserve(entry.target);
-      }
+  const fadeObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); fadeObs.unobserve(e.target); }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.08 });
 
-  faders.forEach(el => fadeObserver.observe(el));
+  document.querySelectorAll('.fade-in').forEach(el => fadeObs.observe(el));
 </script>
 
 </body>
