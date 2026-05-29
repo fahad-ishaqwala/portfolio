@@ -66,10 +66,10 @@
 
     /* MEDIA PLACEHOLDER */
     .node-placeholder {
-      width: 82%;
-      aspect-ratio: 16 / 9;
+      width: 72%;
+      aspect-ratio: 16 / 12;
       border-radius: 8px;
-      border: 1.5px dashed rgba(79,255,206,0.22);
+      border: none;
       background: var(--navy2);
       overflow: hidden;
       margin-bottom: 28px;
@@ -79,19 +79,15 @@
       align-items: center;
       justify-content: center;
       gap: 7px;
-      transition: var(--trans);
-      cursor: default;
     }
 
-    .node-placeholder:hover { border-color: rgba(79,255,206,0.42); }
-
     /* swap in your photo/video — uncomment and add src */
-    /* .node-placeholder img,
+    .node-placeholder img,
     .node-placeholder video {
       position: absolute; inset: 0;
       width: 100%; height: 100%;
-      object-fit: cover; border-radius: 8px;
-    } */
+      object-fit: cover; object-position: center 15%; border-radius: 8px;
+    }
 
     .placeholder-icon { font-size: 18px; opacity: 0.25; color: var(--green); }
     .placeholder-label { font-family: var(--mono); font-size: 10px; color: rgba(79,255,206,0.3); letter-spacing: 0.1em; text-align: center; line-height: 1.9; }
@@ -169,7 +165,7 @@
     /* ── MAIN ── */
     main { flex: 1; padding: 56px 0 120px; }
     section { padding: 64px 0; max-width: 680px; }
-    section:first-child { padding-top: 0; }
+    section:first-child { padding-top: 56px; }
 
     .section-label {
       font-family: var(--mono);
@@ -313,6 +309,39 @@
 
     .proj-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
 
+
+    /* IMPACT METRICS row inside inline project */
+    .impact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .impact-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .impact-value {
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--green);
+      letter-spacing: 0.02em;
+    }
+
+    .impact-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--slate);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
     .proj-tag {
       font-family: var(--mono);
       font-size: 10px;
@@ -439,10 +468,10 @@
 
       <!-- MEDIA PLACEHOLDER — replace contents with <img> or <video> when ready -->
       <div class="node-placeholder">
-        <!-- <img src="your-photo.jpg" alt="Fahad Ishaqwala" /> -->
+        <img src="94163.png" alt="Fahad Ishaqwala" />
         <!-- <video src="your-clip.mp4" autoplay loop muted playsinline></video> -->
-        <span class="placeholder-icon">▶</span>
-        <span class="placeholder-label">photo · or · 3s loop<br>16 : 9</span>
+        <!-- <span class="placeholder-icon">▶</span>
+        <span class="placeholder-label">photo · or · 3s loop<br>16 : 9</span> -->
       </div>
 
       <p class="mono-label">// Singapore</p>
@@ -557,6 +586,11 @@
             <div class="proj-tags">
               <span class="proj-tag">LangGraph</span><span class="proj-tag">Mistral API</span><span class="proj-tag">ChromaDB</span><span class="proj-tag">Snowflake</span><span class="proj-tag">Databricks</span>
             </div>
+            <div class="impact-row">
+              <div class="impact-stat"><span class="impact-value">—</span><span class="impact-label">Users Served</span></div>
+              <div class="impact-stat"><span class="impact-value">—</span><span class="impact-label">FTE Saved</span></div>
+              <div class="impact-stat"><span class="impact-value">—</span><span class="impact-label">Query Time ↓</span></div>
+            </div>
           </div>
 
           <div class="inline-project">
@@ -567,6 +601,11 @@
             <p>Sole architect and developer. Custom Python rules engine implementing BCBS 239 data quality controls — replaced a fragmented manual process with automated, auditable DQ validation across critical risk data domains.</p>
             <div class="proj-tags">
               <span class="proj-tag">Python</span><span class="proj-tag">SQL</span><span class="proj-tag">Collibra</span><span class="proj-tag">Solidatus</span>
+            </div>
+            <div class="impact-row">
+              <div class="impact-stat"><span class="impact-value">—</span><span class="impact-label">Data Domains</span></div>
+              <div class="impact-stat"><span class="impact-value">—</span><span class="impact-label">Rules Automated</span></div>
+              <div class="impact-stat"><span class="impact-value">—</span><span class="impact-label">FTE Saved</span></div>
             </div>
           </div>
         </div>
@@ -596,6 +635,11 @@
             <div class="proj-tags">
               <span class="proj-tag">PySpark</span><span class="proj-tag">Python</span><span class="proj-tag">Hadoop</span><span class="proj-tag">Streaming</span>
             </div>
+            <div class="impact-row">
+              <div class="impact-stat"><span class="impact-value">~2.5M</span><span class="impact-label">Citizens Covered</span></div>
+              <div class="impact-stat"><span class="impact-value">—</span><span class="impact-label">FTE Saved</span></div>
+              <div class="impact-stat"><span class="impact-value">Real-Time</span><span class="impact-label">Detection</span></div>
+            </div>
           </div>
 
           <div class="inline-project">
@@ -606,6 +650,11 @@
             <p>14 TB data lake spanning 10 Singapore government agencies. End-to-end delivery including ingestion, transformation, and Tableau-ready query optimisation across heterogeneous data sources.</p>
             <div class="proj-tags">
               <span class="proj-tag">Hadoop</span><span class="proj-tag">Hive</span><span class="proj-tag">Impala</span><span class="proj-tag">PySpark</span><span class="proj-tag">Tableau</span>
+            </div>
+            <div class="impact-row">
+              <div class="impact-stat"><span class="impact-value">10</span><span class="impact-label">Agencies</span></div>
+              <div class="impact-stat"><span class="impact-value">14 TB</span><span class="impact-label">Data Lake</span></div>
+              <div class="impact-stat"><span class="impact-value">—</span><span class="impact-label">FTE Saved</span></div>
             </div>
           </div>
         </div>
